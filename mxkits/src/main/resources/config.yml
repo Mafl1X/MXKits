@@ -1,0 +1,81 @@
+database:
+  type: sqlite # mysql or sqlite
+  host: 127.0.0.1
+  port: 3306
+  database: mxkits
+  user: root
+  password: password
+  pool-size: 10
+  connection-timeout: 30000
+
+messages:
+  help: |-
+    &6MXKits commands:
+    &e/mxkit preview <kit> &7- preview a kit
+    &e/mxkit create <kit> &7- create a kit from your inventory
+    &e/mxkit editkit <kit> &7- edit a kit
+    &e/mxkit give <player> <kit> &7- give kit to player
+  successfullyPreviewOpen: '&aSuccessfully opened kit preview!'
+  kitCreated: '&aKit created from your inventory!'
+  kitAlreadyExists: '&cKit with this name already exists!'
+  kitNotCreated: '&cKit was not created!'
+  kitNotFound: '&cKit not found!'
+  successfullyTakeItKit: '&aSuccessfully received the kit!'
+  hasCooldown: '&cCooldown: %cooldown!'
+  pointsNotFound: '&cYou do not have enough points!'
+  successfullyBuyKit: '&aYou have successfully purchased the kit!'
+  noHavePermissionTakeItKits: '&cYou do not have permission to take this kit!'
+
+kitDefaults:
+  delay: 0
+  points: 0
+  groups: ''
+
+menuEdit:
+  settings:
+    name: '&8Edit Kit'
+    soundOpen: BLOCK_CHEST_OPEN
+
+menuPreview:
+  settings:
+    rows: 6
+    name: '&8Kit Preview'
+    soundOpen: BLOCK_CHEST_OPEN
+
+  buyItem:
+    slots:
+      - 47
+    name: '&eBuy Kit'
+    lore:
+      - ''
+      - '&7Cost: &6%points points'
+      - ''
+    material: YELLOW_WOOL
+
+  takeIt:
+    slots:
+      - 51
+    name: '&aTake Kit'
+    lore:
+      - ''
+      - '&7Click to take the kit'
+      - ''
+    material: LIME_WOOL
+
+  other:
+    BLACK_STAINED_GLASS_PANE:
+      slots:
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+      material: BLACK_STAINED_GLASS_PANE
+      name: ' '
+      lore: []
+
+kits: {}

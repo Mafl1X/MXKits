@@ -1,0 +1,163 @@
+database:
+  type: sqlite # mysql or sqlite
+  host: 127.0.0.1
+  port: 3306
+  database: mxkits
+  user: root
+  password: password
+  pool-size: 10
+  connection-timeout: 30000
+
+messages:
+  prefix: '§x§F§B§0§8§3§9§lʟ§x§F§B§0§7§4§0§lᴏ§x§F§C§0§6§4§7§lɴ§x§F§C§0§5§4§E§lᴇ§x§F§C§0§5§5§5§lɢ§x§F§C§0§4§5§C§lʀ§x§F§D§0§3§6§3§lɪ§x§F§D§0§2§6§A§lᴇ§x§F§D§0§1§7§1§lꜰ §8|'
+  help: |-
+    %prefix% &fКоманды:
+    %prefix% &e/mxkit preview <набор> &7- посмотреть набор
+    %prefix% &e/mxkit create <набор> &7- создать набор из инвентаря
+    %prefix% &e/mxkit editkit <набор> &7- редактировать набор
+    %prefix% &e/mxkit delete <набор> &7- удалить набор
+    %prefix% &e/mxkit give <игрок> <набор> &7- выдать набор
+  successfullyPreviewOpen: '%prefix% &aОткрыт просмотр набора.'
+  kitCreated: '%prefix% &aНабор создан из инвентаря.'
+  kitAlreadyExists: '%prefix% &cНабор с таким именем уже существует.'
+  kitNotCreated: '%prefix% &cНе удалось создать набор.'
+  kitNotFound: '%prefix% &cНабор не найден.'
+  successfullyTakeItKit: '%prefix% &aНабор получен.'
+  hasCooldown: '%prefix% &cКулдаун: %cooldown'
+  pointsNotFound: '%prefix% &cНедостаточно поинтов.'
+  successfullyBuyKit: '%prefix% &aНабор куплен.'
+  noHavePermissionTakeItKits: '%prefix% &cУ вас нет доступа к этому набору.'
+  noPermission: '%prefix% &cНедостаточно прав.'
+  onlyPlayers: '%prefix% &cЭту команду могут использовать только игроки.'
+  playerNotFound: '%prefix% &cИгрок не найден.'
+  kitDeleted: '%prefix% &aНабор удалён.'
+  editPromptPoints: '%prefix% &eВведите стоимость набора в поинтах (число) или напишите cancel.'
+  editPromptDelay: '%prefix% &eВведите задержку в секундах или напишите cancel.'
+  editPromptPermission: '%prefix% &eВведите пермишен на набор или напишите none, либо cancel.'
+  editInvalidNumber: '%prefix% &cНекорректное число.'
+  editSaved: '%prefix% &aПараметр сохранён.'
+  editCancelled: '%prefix% &7Изменение отменено.'
+
+kitDefaults:
+  delay: 0
+  points: 0
+  permission: ''
+
+menuEdit:
+  settings:
+    rows: 6
+    name: '&8Редактирование набора'
+    soundOpen: BLOCK_CHEST_OPEN
+  other:
+    HELMET:
+      slots:
+      - 45
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&7Шлем'
+      lore:
+      - '&8Положите предмет в этот слот'
+    CHESTPLATE:
+      slots:
+      - 46
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&7Нагрудник'
+      lore:
+      - '&8Положите предмет в этот слот'
+    LEGGINGS:
+      slots:
+      - 47
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&7Штаны'
+      lore:
+      - '&8Положите предмет в этот слот'
+    BOOTS:
+      slots:
+      - 48
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&7Ботинки'
+      lore:
+      - '&8Положите предмет в этот слот'
+    OFFHAND:
+      slots:
+      - 49
+      material: LIGHT_GRAY_STAINED_GLASS_PANE
+      name: '&7Вторая рука'
+      lore:
+      - '&8Положите предмет в этот слот'
+  edit:
+    points:
+      slots:
+      - 51
+      name: §e[Стоимость]
+      lore:
+      - ''
+      - ' §x§D§7§0§0§4§E▲ §x§F§F§F§2§E§0Текущая: §x§F§D§0§1§7§1%points'
+      - ' §x§D§7§0§0§4§E▼ §x§F§F§F§2§E§0Нажмите, чтобы изменить'
+      - ''
+      material: GOLD_INGOT
+    delay:
+      slots:
+      - 52
+      name: §e[Задержка]
+      lore:
+      - ''
+      - ' §x§D§7§0§0§4§E▲ §x§F§F§F§2§E§0Текущая: §x§F§D§0§1§7§1%cooldown'
+      - ' §x§D§7§0§0§4§E▼ §x§F§F§F§2§E§0Нажмите, чтобы изменить'
+      - ''
+      material: CLOCK
+    permission:
+      slots:
+      - 53
+      name: §e[Пермишен]
+      lore:
+      - ''
+      - ' §x§D§7§0§0§4§E▲ §x§F§F§F§2§E§0Текущий: §x§F§D§0§1§7§1%permission'
+      - ' §x§D§7§0§0§4§E▼ §x§F§F§F§2§E§0Нажмите, чтобы изменить'
+      - ''
+      material: NAME_TAG
+
+menuPreview:
+  settings:
+    rows: 6
+    name: §8Просмотр набора
+
+  buyItem:
+    slots:
+    - 51
+    name: §a[Купить]
+    lore:
+    - ''
+    - ' §x§D§7§0§0§4§E▲ §x§F§F§F§2§E§0Нажмите, чтобы купить набор'
+    - ' §x§D§7§0§0§4§E▼ §x§F§F§F§2§E§0Стоимость: §x§F§D§0§1§7§1%points Лонов §x§F§D§F§4§E§3Ӫ'
+    - ''
+    material: HONEYCOMB
+  takeIt:
+    slots:
+    - 47
+    name: §a[Получить набор]
+    lore:
+    - ''
+    - ' §x§D§7§0§0§4§E▲ §x§F§F§F§2§E§0Нажмите, чтобы получить набор'
+    - ' §x§D§7§0§0§4§E▼ §x§F§F§F§2§E§0Стоимость: §aБесплатно'
+    - ''
+    material: CHEST
+  other:
+    BLACK_STAINED_GLASS_PANE:
+      slots:
+      - 45
+      - 49
+      - 53
+      material: BLACK_STAINED_GLASS_PANE
+      name:
+      lore: []
+    GRAY_STAINED_GLASS_PANE:
+      slots:
+      - 46
+      - 48
+      - 50
+      - 52
+      material: GRAY_STAINED_GLASS_PANE
+      name:
+      lore: []
+
+kits: {}
